@@ -12,10 +12,10 @@ class NicknameReplacer
     public function highlight_nicknames(string $text): string
     {
         try {
+            if (empty($text)){
+                throw new Exception('param $text is empty!');
+            }
             return preg_replace_callback(self::$regexNickname, function ($nickname){
-                if (!isset($nickname[0])){
-                    throw new Exception('Nickname not found!');
-                }
                 return $this->gethighlightNickname($nickname[0]);
             }, $text);
         }catch(Exception $err){
