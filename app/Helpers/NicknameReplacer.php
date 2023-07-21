@@ -26,6 +26,6 @@ class NicknameReplacer
     private function gethighlightNickname(string $nickname): string
     {
         preg_match(self::$regexNicknameWithoutSpace, $nickname, $nicknameNoSpace);
-        return  str_replace($nicknameNoSpace[0], '<b>'.$nicknameNoSpace[0].'<b>', $nickname);
+        return  str_replace($nicknameNoSpace[0], '<b>'.$nicknameNoSpace[0].'</b>', $nickname);
     }
 }
