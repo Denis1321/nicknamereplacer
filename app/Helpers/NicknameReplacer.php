@@ -11,12 +11,17 @@ class NicknameReplacer
     private static string $regexNicknameWithoutSpace = '/@[\w\d]+/';
     public function highlight_nicknames(string $text): string
     {
-        return preg_replace_callback(self::$regexNickname, function ($nickname){
-            if (!isset($nickname[0])){
-                throw new Exception('Nickname not found!');
-            }
-            return $this->gethighlightNickname($nickname[0]);
-        }, $text);
+        try {
+            return preg_replace_callback(self::$regexNickname, function ($nickname){
+                if (!isset($nickname[0])){
+                    throw new Exception('Nickname not found!');
+                }
+                return $this->gethighlightNickname($nickname[0]);
+            }, $text);
+        }catch(Exception $err){
+            return $err->getMessage();
+        }
+
     }
     private function gethighlightNickname(string $nickname): string
     {
