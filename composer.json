@@ -1,0 +1,19 @@
+{
+    "name": "marke/nicknames_replacer",
+    "description": "a test project for the development of the nickname allocation function",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Denis Zarubin"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1"
+    }
+}
